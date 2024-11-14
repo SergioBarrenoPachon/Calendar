@@ -1,36 +1,72 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Generar QR para cada día del calendario
-    const qrDiasContainer = document.getElementById("qr-dias");
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de QR - Calendario de Adviento</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🎄 Generador de QR - Calendario de Adviento 🎄</h1>
+        <p>Escanea cada QR para desbloquear cada día en el calendario principal.</p>
+    </header>
 
-    for (let i = 1; i <= 24; i++) {
-        // Crear un contenedor para cada día
-        const dayContainer = document.createElement("div");
-        dayContainer.classList.add("qr-item");
+    <main>
+        <div class="qr-container">
+            <!-- Contenedor dinámico para los QRs de cada día -->
+            <h2>QRs de los Días</h2>
+            <div id="qr-dias">
+                <!-- Se generarán 24 QRs automáticamente -->
+            </div>
 
-        const dayTitle = document.createElement("h3");
-        dayTitle.textContent = `Día ${i}`;
-        dayContainer.appendChild(dayTitle);
+            <h2>QR de Reset</h2>
+            <div id="qr-reset">
+                <p>Escanea este código para borrar todo el progreso.</p>
+                <div id="qrcode-reset"></div>
+            </div>
+        </div>
+    </main>
 
-        // Crear el QR
-        const qrCodeElement = document.createElement("canvas");
-        dayContainer.appendChild(qrCodeElement);
-
-        // Generar el QR con el enlace al día correspondiente
-        const url = `https://sergiobarrenopachon.github.io/Calendar/index.html?dia=${i}`;
-        QRCode.toCanvas(qrCodeElement, url, (error) => {
-            if (error) console.error("Error generando el QR para el día", i, error);
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Generar QR para cada día del calendario
+            const qrDiasContainer = document.getElementById("qr-dias");
+        
+            for (let i = 1; i <= 24; i++) {
+                // Crear un contenedor para cada día
+                const dayContainer = document.createElement("div");
+                dayContainer.classList.add("qr-item");
+        
+                const dayTitle = document.createElement("h3");
+                dayTitle.textContent = `Día ${i}`;
+                dayContainer.appendChild(dayTitle);
+        
+                // Crear el QR
+                const qrCodeElement = document.createElement("canvas");
+                dayContainer.appendChild(qrCodeElement);
+        
+                // Generar el QR con el enlace al día correspondiente
+                const url = `https://sergiobarrenopachon.github.io/Calendar/index.html?dia=${i}`;
+                QRCode.toCanvas(qrCodeElement, url, (error) => {
+                    if (error) console.error("Error generando el QR para el día", i, error);
+                });
+        
+                qrDiasContainer.appendChild(dayContainer);
+            }
+        
+            // Generar el QR de Reset
+            const qrResetContainer = document.getElementById("qrcode-reset");
+            const resetURL = "https://sergiobarrenopachon.github.io/Calendar/index.html?reset=true";
+            const resetCanvas = document.createElement("canvas");
+            qrResetContainer.appendChild(resetCanvas);
+        
+            QRCode.toCanvas(resetCanvas, resetURL, (error) => {
+                if (error) console.error("Error generando el QR de reset", error);
+            });
         });
 
-        qrDiasContainer.appendChild(dayContainer);
-    }
-
-    // Generar el QR de Reset
-    const qrResetContainer = document.getElementById("qrcode-reset");
-    const resetURL = "https://sergiobarrenopachon.github.io/Calendar/index.html?reset=true";
-    const resetCanvas = document.createElement("canvas");
-    qrResetContainer.appendChild(resetCanvas);
-
-    QRCode.toCanvas(resetCanvas, resetURL, (error) => {
-        if (error) console.error("Error generando el QR de reset", error);
-    });
-});
+    </script>
+</body>
+</html>
