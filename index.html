@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Adviento</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <h1>Calendario de Adviento</h1>
+    <p>Haz clic en cada día para descubrir las pistas.</p>
+
+    <div class="calendario">
+        <div class="día" data-dia="1">1</div>
+        <div class="día" data-dia="2">2</div>
+        <div class="día" data-dia="3">3</div>
+        <div class="día" data-dia="4">4</div>
+        <!-- Continúa con el resto de los días hasta el 24 -->
+    </div>
+
+    <div id="progreso">
+        <h2>Progreso:</h2>
+        <ul id="lista-progreso">
+            <!-- Aquí se mostrará el progreso de los días desbloqueados -->
+        </ul>
+    </div>
+
+    <div id="mensaje">
+        <!-- Aquí aparecerán las pistas cuando un día sea desbloqueado -->
+    </div>
+</body>
+</html>
