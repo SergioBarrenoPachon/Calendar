@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    color: #FF6347;
+}
+
+.calendario {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 20px;
+}
+
+.día {
+    background-color: #f0f0f0;
+    padding: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.día.desbloqueado {
+    opacity: 1;
+    background-color: #FFD700;
+}
+
+#progreso {
+    margin-top: 30px;
+}
+
+#mensaje {
+    margin-top: 30px;
+}
+
+#mensaje img {
+    width: 50%;
+    max-width: 200px;
+}
