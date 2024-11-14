@@ -30,7 +30,7 @@
     <script>
         // Generamos los QR para cada día
         for (let i = 1; i <= 24; i++) {
-            let url = `https://raw.githubusercontent.com/TU_USUARIO/NOMBRE_DEL_REPOSITORIO/main/index.html?dia=${i}`;
+            let url = `https://sergiobarrenopachon.github.io/Calendar/index.html?dia=${i}`;
             QRCode.toCanvas(document.getElementById(`qrcode${i}`), url, function (error) {
                 if (error) console.error(error);
                 console.log('QR generado para el día ' + i);
