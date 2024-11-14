@@ -3,50 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de QR</title>
+    <title>Generador de QR para el Calendario de Adviento</title>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
 </head>
 <body>
-    <h1>Generador de QR para el Calendario de Adviento</h1>
+    <h1>Generador de QR</h1>
+    <p>Haz clic en el día para generar su código QR y desbloquear el mensaje especial</p>
 
     <div class="qr-container">
-        <h2>Genera el QR para cada día</h2>
-        <p>Haz clic en cada día para generar su QR correspondiente:</p>
-
-        <div id="qr-1">
-            <h3>Día 1</h3>
-            <div id="qrcode1"></div>
-        </div>
-
-        <div id="qr-2">
-            <h3>Día 2</h3>
-            <div id="qrcode2"></div>
-        </div>
-
-        <div id="qr-3">
-            <h3>Día 3</h3>
-            <div id="qrcode3"></div>
-        </div>
-
-        <div id="qr-4">
-            <h3>Día 4</h3>
-            <div id="qrcode4"></div>
-        </div>
-
-        <!-- Continúa para los demás días hasta el 24 -->
+        <!-- Los QRs se generan dinámicamente -->
+        <div id="qr-1"><h3>Día 1</h3><div id="qrcode1"></div></div>
+        <div id="qr-2"><h3>Día 2</h3><div id="qrcode2"></div></div>
+        <!-- Continuar para cada día hasta el 24 -->
 
     </div>
 
     <script>
-        // Genera los QR para cada día
         for (let i = 1; i <= 24; i++) {
             let url = `https://sergiobarrenopachon.github.io/Calendar/index.html?dia=${i}`;
             QRCode.toCanvas(document.getElementById(`qrcode${i}`), url, function (error) {
                 if (error) console.error(error);
-                console.log('QR generado para el día ' + i);
             });
         }
     </script>
 </body>
 </html>
-
