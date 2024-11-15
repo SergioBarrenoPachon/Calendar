@@ -1,7 +1,7 @@
 body {
     font-family: 'Arial', sans-serif;
     color: #2C3E50;
-    background: url('img/fondo1.png') no-repeat center center fixed;
+    background: url('../img/fondo1.png') no-repeat center center fixed;
     background-size: cover;
     text-align: center;
     margin: 0;
