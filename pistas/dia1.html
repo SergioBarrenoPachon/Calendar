@@ -11,13 +11,15 @@
         <h1>🎄 Día 1 🎄</h1>
     </header>
     <main>
-        <p>Tu pista romántica está aquí: "Busca bajo el árbol más brillante".</p>
-        <p>Pregunta: ¿Cuál es el color favorito del amor?</p>
+        <p>Tu pista: "El amor se encuentra en el color más brillante".</p>
+        <p>Pregunta: ¿Qué color simboliza tradicionalmente el amor?</p>
         <form id="answer-form">
             <label for="answer">Tu respuesta:</label>
             <input type="text" id="answer" name="answer" placeholder="Escribe tu respuesta aquí">
             <button type="submit">Enviar</button>
         </form>
+        <br>
+        <button onclick="window.location.href='../index.html'">Volver al calendario</button>
     </main>
 
     <script>
@@ -29,7 +31,7 @@
 
             if (userAnswer === correctAnswer) {
                 alert("¡Correcto! Día resuelto.");
-                const dia = 1; // Número del día actual
+                const dia = 1; // Cambiar al número del día correspondiente
                 const progreso = JSON.parse(localStorage.getItem("progreso")) || {};
                 progreso[dia] = { status: "resolved" };
                 localStorage.setItem("progreso", JSON.stringify(progreso));
@@ -41,3 +43,4 @@
     </script>
 </body>
 </html>
+
