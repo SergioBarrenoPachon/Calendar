@@ -1,14 +1,17 @@
 body {
     font-family: 'Arial', sans-serif;
     color: #2C3E50;
-    background: #FDFEFE;
+    background: url('A_festive_and_romantic_Christmas-themed_background.png') no-repeat center center fixed;
+    background-size: cover;
     text-align: center;
     margin: 0;
     padding: 10px;
 }
 
 header {
-    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece ligeramente el fondo para legibilidad */
+    padding: 20px;
+    border-radius: 10px;
 }
 
 header h1 {
@@ -17,8 +20,9 @@ header h1 {
 }
 
 header p {
-    color: #34495E;
+    color: #FFF;
 }
+
 
 .calendar-grid {
     display: grid;
