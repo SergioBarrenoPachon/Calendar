@@ -9,12 +9,12 @@
 <body>
     <header>
         <h1>🎄 Calendario de Adviento 🎄</h1>
-        <p>Descubre cada día una pista y resuelve su pregunta para progresar.</p>
+        <p>Resuelve cada pista día a día para descubrir el regalo final.</p>
     </header>
 
     <main>
         <div class="calendar-grid" id="calendar">
-            <!-- Contenedor dinámico para los días -->
+            <!-- Aquí se generan dinámicamente los días -->
         </div>
     </main>
 
@@ -23,25 +23,20 @@
             const calendar = document.getElementById("calendar");
             const progreso = JSON.parse(localStorage.getItem("progreso")) || {};
 
+            // Generar días del calendario
             for (let i = 1; i <= 24; i++) {
                 const dayBox = document.createElement("a");
-                dayBox.href = progreso[i]?.status === "resolved" 
-                    ? `pistas/dia${i}.html`
-                    : progreso[i]?.status === "unlocked"
-                        ? `pistas/dia${i}.html`
-                        : "#";
+                const dayStatus = progreso[i]?.status || "locked";
 
-                dayBox.classList.add("calendar-day");
-                if (progreso[i]?.status === "resolved") {
-                    dayBox.classList.add("resolved");
-                } else if (progreso[i]?.status === "unlocked") {
-                    dayBox.classList.add("unlocked");
-                } else {
-                    dayBox.classList.add("locked");
-                }
+                dayBox.href = dayStatus === "unlocked" || dayStatus === "resolved" 
+                    ? `pistas/dia${i}.html`
+                    : "#";
+
+                dayBox.classList.add("calendar-day", dayStatus);
                 dayBox.textContent = `Día ${i}`;
 
-                if (!progreso[i] || progreso[i]?.status === "locked") {
+                // Evitar clics en días bloqueados
+                if (dayStatus === "locked") {
                     dayBox.addEventListener("click", (e) => {
                         e.preventDefault();
                         alert("Escanea el QR para desbloquear este día.");
@@ -51,7 +46,7 @@
                 calendar.appendChild(dayBox);
             }
 
-            // Desbloquear día desde el QR
+            // Desbloquear día desde QR
             const params = new URLSearchParams(window.location.search);
             const dia = params.get("dia");
             if (dia) {
@@ -62,7 +57,7 @@
                 window.location.href = `pistas/dia${dia}.html`;
             }
 
-            // Reset de progreso
+            // Reset del progreso
             if (params.get("reset") === "true") {
                 localStorage.removeItem("progreso");
                 alert("Progreso borrado. Todo está bloqueado de nuevo.");
