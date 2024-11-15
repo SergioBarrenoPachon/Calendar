@@ -3,52 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendario de Adviento Romántico</title>
+    <title>Calendario de Adviento</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>🎄 Mi Calendario de Adviento 🎄</h1>
-        <p>Descubre una sorpresa romántica cada día</p>
+        <h1>🎄 Calendario de Adviento 🎄</h1>
+        <p>Descubre cada día una pista y resuelve su pregunta para progresar.</p>
     </header>
 
     <main>
-        <div class="calendario">
-            <!-- Días del calendario con evento de desbloqueo -->
-            <!-- Utilizamos data-dia para identificar cada día -->
-            <div class="día" data-dia="1">1</div>
-            <div class="día" data-dia="2">2</div>
-            <div class="día" data-dia="3">3</div>
-            <div class="día" data-dia="4">4</div>
-            <div class="día" data-dia="5">5</div>
-            <div class="día" data-dia="6">6</div>
-            <div class="día" data-dia="7">7</div>
-            <div class="día" data-dia="8">8</div>
-            <div class="día" data-dia="9">9</div>
-            <div class="día" data-dia="10">10</div>
-            <div class="día" data-dia="11">11</div>
-            <div class="día" data-dia="12">12</div>
-            <div class="día" data-dia="13">13</div>
-            <div class="día" data-dia="14">14</div>
-            <div class="día" data-dia="15">15</div>
-            <div class="día" data-dia="16">16</div>
-            <div class="día" data-dia="17">17</div>
-            <div class="día" data-dia="18">18</div>
-            <div class="día" data-dia="19">19</div>
-            <div class="día" data-dia="20">20</div>
-            <div class="día" data-dia="21">21</div>
-            <div class="día" data-dia="22">22</div>
-            <div class="día" data-dia="23">23</div>
-            <div class="día" data-dia="24">24</div>
+        <div class="calendar-grid" id="calendar">
+            <!-- Contenedor dinámico para los días -->
         </div>
-        
-        <section id="progreso">
-            <h2>Mi Progreso de Amor 💖</h2>
-            <ul id="lista-progreso"></ul>
-        </section>
-        
-        <div id="mensaje"></div>
     </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const calendar = document.getElementById("calendar");
+            const progreso = JSON.parse(localStorage.getItem("progreso")) || {};
+
+            for (let i = 1; i <= 24; i++) {
+                const dayBox = document.createElement("a");
+                dayBox.href = progreso[i]?.status === "resolved" 
+                    ? `pistas/dia${i}.html`
+                    : progreso[i]?.status === "unlocked"
+                        ? `pistas/dia${i}.html`
+                        : "#";
+
+                dayBox.classList.add("calendar-day");
+                if (progreso[i]?.status === "resolved") {
+                    dayBox.classList.add("resolved");
+                } else if (progreso[i]?.status === "unlocked") {
+                    dayBox.classList.add("unlocked");
+                } else {
+                    dayBox.classList.add("locked");
+                }
+                dayBox.textContent = `Día ${i}`;
+
+                if (!progreso[i] || progreso[i]?.status === "locked") {
+                    dayBox.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        alert("Escanea el QR para desbloquear este día.");
+                    });
+                }
+
+                calendar.appendChild(dayBox);
+            }
+
+            // Desbloquear día desde el QR
+            const params = new URLSearchParams(window.location.search);
+            const dia = params.get("dia");
+            if (dia) {
+                if (!progreso[dia]) {
+                    progreso[dia] = { status: "unlocked" };
+                    localStorage.setItem("progreso", JSON.stringify(progreso));
+                }
+                window.location.href = `pistas/dia${dia}.html`;
+            }
+
+            // Reset de progreso
+            if (params.get("reset") === "true") {
+                localStorage.removeItem("progreso");
+                alert("Progreso borrado. Todo está bloqueado de nuevo.");
+                location.href = "index.html";
+            }
+        });
+    </script>
 </body>
 </html>
