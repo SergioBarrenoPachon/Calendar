@@ -1,53 +1,68 @@
-/* Estilos generales romántico-navideños */
 body {
     font-family: 'Arial', sans-serif;
-    color: #8B0000;
-    background-image: url('../img/fondo-navidad.jpg');
-    background-size: cover;
-    background-position: center;
+    color: #2C3E50;
+    background: #FDFEFE;
     text-align: center;
-    padding: 10px;
     margin: 0;
+    padding: 10px;
+}
+
+header {
+    margin-bottom: 20px;
 }
 
 header h1 {
-    color: #FFD700;
     font-size: 2em;
+    color: #E74C3C;
 }
 
 header p {
-    font-size: 1.2em;
-    color: #FFF5EE;
+    color: #34495E;
 }
 
-.qr-container {
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.calendar-day {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 15px;
+    font-size: 1em;
+    border: 2px solid #BDC3C7;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background: #BDC3C7;
+    transition: background 0.3s;
 }
 
-.qr-item {
-    background: #fff;
-    padding: 10px;
-    border: 2px solid #DC143C;
-    border-radius: 10px;
-    margin: 10px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 300px;
+.calendar-day.unlocked {
+    background: #27AE60;
+    border-color: #2ECC71;
 }
 
-.qr-item h3 {
-    color: #8B0000;
+.calendar-day.resolved {
+    background: #FF69B4; /* Rosa */
+    border-color: #FFB6C1;
 }
 
-#qr-reset {
-    margin-top: 20px;
-    text-align: center;
+.calendar-day.locked {
+    background: #95A5A6;
+    pointer-events: none;
+}
+
+.calendar-day:hover.unlocked {
+    background: #2ECC71;
 }
 
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5em;
+    .calendar-grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
