@@ -42,6 +42,11 @@ header p {
     transition: background 0.3s;
 }
 
+.calendar-day.locked {
+    background: #95A5A6;
+    pointer-events: none;
+}
+
 .calendar-day.unlocked {
     background: #27AE60;
     border-color: #2ECC71;
@@ -52,17 +57,22 @@ header p {
     border-color: #FFB6C1;
 }
 
-.calendar-day.locked {
-    background: #95A5A6;
-    pointer-events: none;
-}
-
 .calendar-day:hover.unlocked {
     background: #2ECC71;
 }
 
-@media (max-width: 768px) {
-    .calendar-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #FFF;
+    background-color: #3498DB;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
+
+button:hover {
+    background-color: #2980B9;
+}
+
