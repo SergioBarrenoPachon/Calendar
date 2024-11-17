@@ -111,47 +111,71 @@ label, input {
     color: #000; /* Texto negro dentro del formulario */
 }
 
-/* Flip card styles */
 .flip-card {
     background-color: transparent;
-    width: 200px;
-    height: 200px;
-    perspective: 1000px;
-    margin: 20px auto;
-}
-
-.flip-card-inner {
+    width: 100%;
+    max-width: 300px; /* Tamaño máximo adaptable */
+    perspective: 1000px; /* Permite el efecto 3D */
+    margin: 20px auto; /* Centrado */
+  }
+  
+  .flip-card-inner {
     position: relative;
     width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
+    padding-top: 150%; /* Relación de aspecto adaptable */
     transform-style: preserve-3d;
-}
-
-.flip-card-inner.flipped {
-    transform: rotateY(180deg); /* Activar rotación con la clase 'flipped' */
-}
-
-.flip-card-front, .flip-card-back {
+    transition: transform 0.8s ease-in-out; /* Animación suave */
+  }
+  
+  .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg); /* Gira 180° si está "flipped" */
+  }
+  
+  /* Cara frontal: Bloqueo */
+  .flip-card-front {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 10px;
-}
-
-.flip-card-front {
-    background-color: #bbb;
-    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
-}
-
-.flip-card-back {
-    background-size: cover;
-    background-position: center;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #d6a2a2, #f7d9d9);
+    color: #841c1c;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #c95f5f;
+    font-family: 'Georgia', serif;
+    font-size: 1.2rem;
+  }
+  
+  .flip-card-front h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #841c1c;
+    text-shadow: 1px 1px 2px #f8e6e6;
+  }
+  
+  /* Cara trasera: Imagen revelada */
+  .flip-card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
     transform: rotateY(180deg);
-}
+    border-radius: 10px;
+    overflow: hidden; /* Para ajustar la imagen al tamaño del contenedor */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .flip-card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajusta la imagen sin recortarla */
+  }
+  
