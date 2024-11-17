@@ -34,6 +34,14 @@
     </main>
 
     <script>
+        // Seleccionamos la tarjeta interactiva
+        const flipCard = document.getElementById("flip-card-1");
+
+        // Alternamos la clase "flipped" al hacer clic
+        flipCard.addEventListener("click", () => {
+            flipCard.classList.toggle("flipped");
+        });
+        
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
