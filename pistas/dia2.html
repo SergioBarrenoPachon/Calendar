@@ -14,7 +14,7 @@
         <div class="content-box">
             <p>Tu pista está escondida en la tarjeta interactiva. ¡Dale la vuelta!</p>
             <div class="flip-card">
-                <div class="flip-card-inner">
+                <div class="flip-card-inner" id="flip-card-1">
                     <div class="flip-card-front">
                         Haz clic para ver la pista
                     </div>
@@ -41,7 +41,7 @@
         flipCard.addEventListener("click", () => {
             flipCard.classList.toggle("flipped");
         });
-        
+
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
