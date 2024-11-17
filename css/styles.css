@@ -9,14 +9,14 @@ body {
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.5); /* Oscurece ligeramente el fondo para legibilidad */
+    background-color: rgba(0, 0, 0, 0.7); /* Oscurece ligeramente el fondo para legibilidad */
     padding: 20px;
     border-radius: 10px;
 }
 
 header h1 {
     font-size: 2em;
-    color: #E74C3C;
+    color: #d33ce7;
 }
 
 header p {
@@ -80,3 +80,78 @@ button:hover {
     background-color: #2980B9;
 }
 
+/* Formulario */
+
+form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+label, input {
+    color: #000; /* Texto negro dentro del formulario */
+}
+
+
+/* Main content box (pista y pregunta) */
+main {
+    color: #000000;
+}
+
+main .content-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+label, input {
+    color: #000; /* Texto negro dentro del formulario */
+}
+
+/* Flip card styles */
+.flip-card {
+    background-color: transparent;
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+    margin: 20px auto;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.flip-card-back {
+    background-size: cover;
+    background-position: center;
+    transform: rotateY(180deg);
+}

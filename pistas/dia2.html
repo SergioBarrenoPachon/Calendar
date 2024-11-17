@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pista Día 1</title>
+    <title>Pista Día 2</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
-        <h1>🎄 Día 1 🎄</h1>
+        <h1>🎄 Día 2 🎄</h1>
     </header>
     <main>
         <div class="content-box">
-            <p>Tu pista: "El amor se encuentra en el color más brillante".</p>
-            <p>Pregunta: ¿Qué color simboliza tradicionalmente el amor?</p>
+            <p>Tu pista está escondida en la tarjeta interactiva. ¡Dale la vuelta!</p>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        Haz clic para ver la pista
+                    </div>
+                    <div class="flip-card-back" style="background-image: url('../img/clue2.jpg');">
+                        <!-- Imagen en background -->
+                    </div>
+                </div>
+            </div>
             <form id="answer-form">
                 <label for="answer">Tu respuesta:</label>
                 <input type="text" id="answer" name="answer" placeholder="Escribe tu respuesta aquí">
@@ -28,12 +37,12 @@
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const correctAnswer = "rojo"; // Respuesta correcta
+            const correctAnswer = "estrella"; // Respuesta correcta
             const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
 
             if (userAnswer === correctAnswer) {
                 alert("¡Correcto! Día resuelto.");
-                const dia = 1; // Cambiar al número del día correspondiente
+                const dia = 2; // Cambiar al número del día correspondiente
                 const progreso = JSON.parse(localStorage.getItem("progreso")) || {};
                 progreso[dia] = { status: "resolved" };
                 localStorage.setItem("progreso", JSON.stringify(progreso));
