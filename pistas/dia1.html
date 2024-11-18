@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pista Día 1</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <header>
@@ -12,7 +14,10 @@
     </header>
     <main>
         <div class="content-box">
-            <p>Tu pista: "El lugar donde nos conocimos por primera vez. Un momento que cambió todo.".</p>
+            <p class="poesia">La suerte se esconde en cada día,
+                brilla en tu sonrisa, luz mía,
+                y en este momento, como un susurro callado,
+                la fortuna nos vuelve a juntar, de nuevo a tu lado.</p>
             <div class="flip-card" onclick="toggleFlip(this)">
                 <div class="flip-card-inner">
                     <!-- Cara frontal: Bloqueo -->
@@ -24,7 +29,7 @@
               
                     <!-- Cara trasera: Imagen -->
                     <div class="flip-card-back">
-                        <img src="../img/clue2.jpg" alt="Imagen Revelada">
+                        <img src="../img/clue1.jpg" alt="Imagen Revelada">
                     </div>
                 </div>
             </div>                         
@@ -49,7 +54,7 @@
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const correctAnswer = "rojo"; // Respuesta correcta
+            const correctAnswer = "bingo"; // Respuesta correcta
             const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
 
             if (userAnswer === correctAnswer) {
