@@ -15,18 +15,19 @@
             <p>Tu pista: "El lugar donde nos conocimos por primera vez. Un momento que cambió todo.".</p>
             <div class="flip-card" onclick="toggleFlip(this)">
                 <div class="flip-card-inner">
-                  <!-- Cara frontal: Bloqueo -->
-                  <div class="flip-card-front">
-                    <h3>🔒 Bloqueado</h3>
-                    <p>Haz clic para desbloquear</p>
-                  </div>
+                    <!-- Cara frontal: Bloqueo -->
+                    <div class="flip-card-front">
+                        <h3>🔒</h3>
+                        <h3>Bloqueado</h3>
+                        <p>Haz clic para desbloquear</p>
+                    </div>
               
-                  <!-- Cara trasera: Imagen -->
-                  <div class="flip-card-back">
-                    <img src="../img/clue2.jpg" alt="Imagen Oculta">
-                  </div>
+                    <!-- Cara trasera: Imagen -->
+                    <div class="flip-card-back">
+                        <img src="../img/clue2.jpg" alt="Imagen Revelada">
+                    </div>
                 </div>
-              </div>                         
+            </div>                         
             <form id="answer-form">
                 <label for="answer">Tu respuesta:</label>
                 <input type="text" id="answer" name="answer" placeholder="Escribe tu respuesta aquí">
@@ -35,6 +36,7 @@
         </div>
         <br>
         <button onclick="window.location.href='../index.html'">Volver al calendario</button>
+        <br>
     </main>
 
     <script>
