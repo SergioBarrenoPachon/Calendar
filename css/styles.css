@@ -1,69 +1,108 @@
 body {
     font-family: 'Arial', sans-serif;
-    color: #2C3E50;
+    margin: 0;
+    padding: 0;
     background: url('../img/fondo1.png') no-repeat center center fixed;
     background-size: cover;
+    color: #fff;
     text-align: center;
-    margin: 0;
-    padding: 10px;
 }
 
+
 header {
-    background-color: rgba(0, 0, 0, 0.7); /* Oscurece ligeramente el fondo para legibilidad */
-    padding: 20px;
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-bottom: 3px solid #f1c40f;
 }
 
 header h1 {
-    font-size: 2em;
-    color: #d33ce7;
+    font-size: calc(1.5em + 1vw); /* Ajustable al tamaño de la pantalla */
+    color: #e74c3c;
+    margin: 0;
 }
+
 
 header p {
-    color: #FFF;
+    font-size: 1.2em;
+    margin: 5px 0 10px;
+    color: #f39c12;
 }
 
 
+/* Calendar Grid */
 .calendar-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
     margin: 20px auto;
-    max-width: 600px;
+    padding: 10px;
+    max-width: 800px;
 }
 
+/* Calendar Days */
 .calendar-day {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 15px;
-    font-size: 1em;
-    border: 2px solid #BDC3C7;
-    border-radius: 5px;
+    border: 2px solid #e74c3c;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #2c3e50;
+    font-size: 1.1em;
     text-decoration: none;
-    color: white;
-    background: #BDC3C7;
-    transition: background 0.3s;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .calendar-day.locked {
-    background: #95A5A6;
-    pointer-events: none;
+    background-color: rgba(192, 57, 43, 0.8);
+    color: #ecf0f1;
 }
 
-.calendar-day.unlocked {
-    background: #27AE60;
-    border-color: #2ECC71;
+.calendar-day.locked:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
+/* Text in Locked Days */
+.calendar-day.locked span {
+    display: block;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Hover Effect */
+.calendar-day:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Completed Days */
 .calendar-day.resolved {
-    background: #FF69B4; /* Rosa */
-    border-color: #FFB6C1;
+    background-color: rgba(39, 174, 96, 0.8);
+    color: #ecf0f1;
 }
 
-.calendar-day:hover.unlocked {
-    background: #2ECC71;
+/* Unlocked Days */
+.calendar-day.unlocked {
+    background-color: rgba(241, 196, 15, 0.8);
+    color: #2c3e50;
 }
+
+.calendar-day.unlocked:hover {
+    background-color: rgba(243, 156, 18, 0.9);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .calendar-day {
+        font-size: 0.9em;
+    }
+}
+
 
 button {
     padding: 10px 20px;

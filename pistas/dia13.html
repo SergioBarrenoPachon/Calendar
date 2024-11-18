@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pista Día 1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>🎄 Día 1 🎄</h1>
+    </header>
+    <main>
+        <div class="content-box">
+            <p>Tu pista: "El lugar donde nos conocimos por primera vez. Un momento que cambió todo.".</p>
+            <div class="flip-card" onclick="toggleFlip(this)">
+                <div class="flip-card-inner">
+                    <!-- Cara frontal: Bloqueo -->
+                    <div class="flip-card-front">
+                        <h3>🔒 Bloqueado</h3>
+                        <p>Haz clic para desbloquear</p>
+                    </div>
+              
+                    <!-- Cara trasera: Imagen -->
+                    <div class="flip-card-back">
+                        <img src="../img/clue2.jpg" alt="Imagen Oculta">
+                    </div>
+                </div>
+            </div>                         
+            <form id="answer-form">
+                <label for="answer">Tu respuesta:</label>
+                <input type="text" id="answer" name="answer" placeholder="Escribe tu respuesta aquí">
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <br>
+        <button onclick="window.location.href='../index.html'">Volver al calendario</button>
+    </main>
+
+    <script>
+        
+        function toggleFlip(card) {
+            card.classList.toggle('flipped');
+        };
+
+
+        document.getElementById("answer-form").addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const correctAnswer = "rojo"; // Respuesta correcta
+            const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
+
+            if (userAnswer === correctAnswer) {
+                alert("¡Correcto! Día resuelto.");
+                const dia = 1; // Cambiar al número del día correspondiente
+                const progreso = JSON.parse(localStorage.getItem("progreso")) || {};
+                progreso[dia] = { status: "resolved" };
+                localStorage.setItem("progreso", JSON.stringify(progreso));
+                window.location.href = "../index.html";
+            } else {
+                alert("Respuesta incorrecta. Inténtalo de nuevo.");
+            }
+        });
+    </script>
+</body>
+</html>
