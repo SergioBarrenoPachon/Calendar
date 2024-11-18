@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pista Día 2</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -12,17 +13,27 @@
     </header>
     <main>
         <div class="content-box">
-            <p>Tu pista: "Lo primero que me escribiste y que marcó el inicio de nuestras conversaciones".</p>
-            <div class="flip-card">
-                <div class="flip-card-inner" id="flip-card-2">
+            <p class="poesia">
+                Hemos vivido momentos de gran emoción,
+                bodas, bautizos, momentos de unión,
+                y aunque hoy sean de otros, lo creo con el corazón,
+                llegará el día en que nos toque a nosotros la ocasión.
+            </p>
+            <div class="flip-card" onclick="toggleFlip(this)">
+                <div class="flip-card-inner">
+                    <!-- Cara frontal: Bloqueo -->
                     <div class="flip-card-front">
-                        Haz clic para ver la pista
+                        <h3>🔒</h3>
+                        <h3>Bloqueado</h3>
+                        <p>Haz clic para desbloquear</p>
                     </div>
-                    <div class="flip-card-back" style="background-image: url('../img/clue2.jpg');">
-                        <!-- Imagen en background -->
+              
+                    <!-- Cara trasera: Imagen -->
+                    <div class="flip-card-back">
+                        <img src="../img/clue2.jpg" alt="Imagen Revelada">
                     </div>
                 </div>
-            </div>
+            </div>                         
             <form id="answer-form">
                 <label for="answer">Tu respuesta:</label>
                 <input type="text" id="answer" name="answer" placeholder="Escribe tu respuesta aquí">
@@ -31,21 +42,20 @@
         </div>
         <br>
         <button onclick="window.location.href='../index.html'">Volver al calendario</button>
+        <br>
     </main>
 
     <script>
-        // Seleccionamos la tarjeta interactiva
-        const flipCard = document.getElementById("flip-card-2");
+        
+        function toggleFlip(card) {
+            card.classList.toggle('flipped');
+        };
 
-        // Alternamos la clase "flipped" al hacer clic
-        flipCard.addEventListener("click", () => {
-            flipCard.classList.toggle("flipped");
-        });
 
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const correctAnswer = "estrella"; // Respuesta correcta
+            const correctAnswer = "boda"; // Respuesta correcta
             const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
 
             if (userAnswer === correctAnswer) {

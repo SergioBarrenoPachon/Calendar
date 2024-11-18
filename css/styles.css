@@ -29,6 +29,14 @@ header p {
     color: #f39c12;
 }
 
+p {
+    font-size: 1em ;
+    line-height: 1.5; /* Interlineado básico */
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    font-weight: bold; /* Negrita para destacar */
+}
+
 /* Estilo específico para los párrafos con clase "poesia" */
 p.poesia {
     font-family: 'Dancing Script', 'Great Vibes', 'Allura', cursive; /* Fuente caligráfica */
@@ -130,6 +138,7 @@ p.poesia::first-letter {
     perspective: 1000px; /* Permite el efecto 3D */
     margin: 20px auto; /* Centrado */
     position: relative;
+    aspect-ratio: 16 / 9;
 }
 
 /* Inner Container for Flip Effect */
