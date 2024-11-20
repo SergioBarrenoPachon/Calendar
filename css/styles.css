@@ -255,7 +255,7 @@ label, input {
     flex-direction: column;
     max-width: 600px;
     height: 450px;
-    margin: px auto;
+    margin: 15px auto;
     border: 5px solid #1696ff;
     border-radius: 15px;
     background-color: #fff;
