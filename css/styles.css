@@ -136,6 +136,8 @@ p.poesia::first-letter {
     max-width: 300px; /* Tamaño máximo adaptable */
     perspective: 1000px; /* Permite el efecto 3D */
     margin: 20px auto; /* Centrado */
+    position: relative;
+    overflow: hidden; /* Evita que las caras sobrepasen el contenedor */
 }
 
 /* Inner Container for Flip Effect */
