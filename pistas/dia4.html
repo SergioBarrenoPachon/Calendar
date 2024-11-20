@@ -12,21 +12,21 @@
     </header>
     <main>
         <div class="content-box">
-            <p>Tu pista: "El lugar donde nos conocimos por primera vez. Un momento que cambió todo.".</p>
-            <div class="flip-card" onclick="toggleFlip(this)">
-                <div class="flip-card-inner">
-                    <!-- Cara frontal: Bloqueo -->
-                    <div class="flip-card-front">
-                        <h3>🔒 Bloqueado</h3>
-                        <p>Haz clic para desbloquear</p>
-                    </div>
-              
-                    <!-- Cara trasera: Imagen -->
-                    <div class="flip-card-back">
-                        <img src="../img/clue2.jpg" alt="Imagen Oculta">
-                    </div>
+            <p class="poesia">La suerte se esconde en cada día,
+                brilla en tu sonrisa, luz mía,
+                y en este momento, como un susurro callado,
+                la fortuna nos vuelve a juntar, de nuevo a tu lado.</p>
+            <div class="decoraciones">🎄✨</div> <!-- Árbol de navidad y brillo -->
+            <div id="chat-container">
+                <div id="chat-log"></div>
+                <div id="input-container">
+                <input type="text" id="user-input" placeholder="Escribe tu respuesta aquí..." />
+                <button id="send-button" onclick="enviarMensaje()">
+                    <img src="../logo/avion-de-papel.png">
+                </button>
                 </div>
-            </div>                         
+            </div>
+            
             <form id="answer-form">
                 <label for="answer">Tu respuesta:</label>
                 <input type="text" id="answer" name="answer" placeholder="Escribe tu respuesta aquí">
@@ -35,6 +35,7 @@
         </div>
         <br>
         <button onclick="window.location.href='../index.html'">Volver al calendario</button>
+        <br>
     </main>
 
     <script>
@@ -61,6 +62,64 @@
                 alert("Respuesta incorrecta. Inténtalo de nuevo.");
             }
         });
+        // PALABRA SECRETA 
+        // Palabra secreta
+        const palabraSecreta = "gato";
+        let intentos = 0;
+
+        // Pistas predefinidas
+        const pistas = [
+        "Es un animal doméstico.",
+        "Es muy independiente y a veces un poco misterioso.",
+        "Tiene bigotes y una gran habilidad para saltar.",
+        "Hace un sonido como 'miau'."
+        ];
+
+        // Función para enviar mensajes
+        function enviarMensaje() {
+        const input = document.getElementById("user-input");
+        const chatLog = document.getElementById("chat-log");
+        const mensajeUsuario = input.value.trim().toLowerCase();
+
+        if (mensajeUsuario === "") return;
+
+        // Agregar el mensaje del usuario al chat
+        agregarMensajeAlChat("user", mensajeUsuario);
+
+        // Verificar la respuesta del usuario
+        if (mensajeUsuario === palabraSecreta) {
+            agregarMensajeAlChat("ia", `¡Correcto! La palabra secreta era "${palabraSecreta}". ¡Felicidades!`);
+        } else {
+            if (intentos < pistas.length) {
+            agregarMensajeAlChat("ia", pistas[intentos]);
+            } else {
+            agregarMensajeAlChat("ia", "¡Sigue intentando! Ya te he dado todas las pistas que tengo.");
+            }
+            intentos++;
+        }
+
+        // Limpiar el input
+        input.value = "";
+
+        // Desplazar el chat hacia abajo
+        chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        // Función para agregar un mensaje al chat
+        function agregarMensajeAlChat(tipo, mensaje) {
+        const chatLog = document.getElementById("chat-log");
+        const mensajeDiv = document.createElement("div");
+        mensajeDiv.classList.add("chat-message", tipo);
+
+        const contenidoMensaje = document.createElement("div");
+        contenidoMensaje.classList.add("message-content");
+        contenidoMensaje.textContent = mensaje;
+
+        mensajeDiv.appendChild(contenidoMensaje);
+        chatLog.appendChild(mensajeDiv);
+        }
+
+
     </script>
 </body>
 </html>

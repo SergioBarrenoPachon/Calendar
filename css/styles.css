@@ -246,3 +246,137 @@ main .content-box {
 label, input {
     color: #000; /* Texto negro dentro del formulario */
 }
+
+/* CHATGPT */
+
+#chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    height: 450px;
+    margin: px auto;
+    border: 5px solid #1696ff;
+    border-radius: 15px;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: url('../img/copo_nieve.jpg');
+  }
+
+  #chat-log {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 400px; /* Altura máxima del chat */
+    background-color: #ffffffcc;
+    border-bottom: 5px solid #1696ff;
+    scroll-behavior: smooth; /* Desplazamiento suave */
+  }
+
+  .chat-message {
+    margin-bottom: 15px;
+  }
+
+  .chat-message.user {
+    text-align: right;
+  }
+
+  .chat-message.ia {
+    text-align: left;
+  }
+
+  .chat-message .message-content {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 25px;
+    max-width: 80%;
+    font-size: 16px;
+  }
+
+  .chat-message.user .message-content {
+    background-color: #39e0e6;
+    color: #134446;
+    border-bottom-right-radius: 0;
+  }
+
+  .chat-message.ia .message-content {
+    background-color: #2088ff;
+    color: #ffffff;
+    border-bottom-left-radius: 0;
+  }
+
+  #input-container {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    background-color: #d8f5ff;
+    box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  #user-input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+  }
+
+  #send-button {
+    margin-left: 10px;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+  }
+
+  #send-button img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s ease;
+  }
+
+  #send-button img:hover {
+    transform: scale(1.2); /* Efecto de aumento al pasar el mouse */
+  }
+
+  .fly-animation {
+    position: absolute;
+    top: -100px;
+    left: calc(50% - 15px); /* Centrado horizontalmente */
+    animation: fly 2s ease-out forwards;
+  }
+
+  @keyframes fly {
+    0% {
+      top: 0;
+      transform: rotate(0deg);
+    }
+    50% {
+      top: -100px;
+      transform: rotate(45deg);
+    }
+    100% {
+      top: -200px; /* El avión "vuela" hacia arriba */
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+  }
+
+  .decoraciones {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #e63946;
+    animation: sparkle 1s infinite;
+  }
+
+  @keyframes sparkle {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+  }
