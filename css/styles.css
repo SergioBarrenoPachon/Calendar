@@ -40,11 +40,10 @@ p {
 /* Estilo específico para los párrafos con clase "poesia" */
 p.poesia {
     font-family: 'Dancing Script', 'Great Vibes', 'Allura', cursive; /* Fuente caligráfica */
-    font-weight: bold; /* Negrita para destacar */
     text-align: center; /* Centra el texto */
     white-space: pre-line; /* Mantiene saltos de línea y obvia tabulaciones */
     line-height: 1.8; /* Mejora la legibilidad */
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 /* Estilo adicional para la primera letra, si deseas resaltar más */
@@ -137,7 +136,6 @@ p.poesia::first-letter {
     max-width: 300px; /* Tamaño máximo adaptable */
     perspective: 1000px; /* Permite el efecto 3D */
     margin: 20px auto; /* Centrado */
-    position: relative;
     aspect-ratio: 16 / 9;
 }
 
