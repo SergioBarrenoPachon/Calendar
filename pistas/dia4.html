@@ -12,10 +12,7 @@
     </header>
     <main>
         <div class="content-box">
-            <p class="poesia">La suerte se esconde en cada día,
-                brilla en tu sonrisa, luz mía,
-                y en este momento, como un susurro callado,
-                la fortuna nos vuelve a juntar, de nuevo a tu lado.</p>
+            <p>Adivina la palabra secreta.</p>
             <div class="decoraciones">🎄✨</div> <!-- Árbol de navidad y brillo -->
             <div id="chat-container">
                 <div id="chat-log"></div>
@@ -48,7 +45,7 @@
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const correctAnswer = "rojo"; // Respuesta correcta
+            const correctAnswer = "gato"; // Respuesta correcta
             const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
 
             if (userAnswer === correctAnswer) {
@@ -64,7 +61,7 @@
         });
         // PALABRA SECRETA 
         // Palabra secreta
-        const palabraSecreta = "gato";
+        const palabraSecreta = correctAnswer;
         let intentos = 0;
 
         // Pistas predefinidas
