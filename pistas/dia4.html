@@ -103,6 +103,17 @@
 
         // Desplazar el chat hacia abajo
         chatLog.scrollTop = chatLog.scrollHeight;
+
+        
+        // Activar animación de vuelo
+        const avion = document.querySelector('#send-button img');
+        avion.classList.add('fly-animation');
+
+        // Remover la animación después de 2 segundos para que se pueda volver a aplicar
+        setTimeout(() => {
+            avion.classList.remove('fly-animation');
+        }, 2000);
+        
         }
 
         // Función para agregar un mensaje al chat
@@ -119,6 +130,7 @@
         chatLog.appendChild(mensajeDiv);
         }
 
+        
 
     </script>
 </body>

@@ -361,7 +361,7 @@ label, input {
     }
     100% {
       top: -200px; /* El avión "vuela" hacia arriba */
-      transform: rotate(90deg);
+      transform: rotate(0deg);
       opacity: 0;
     }
   }
