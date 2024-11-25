@@ -33,6 +33,7 @@ p {
     font-size: 1em ;
     line-height: 1.5; /* Interlineado básico */
     word-wrap: break-word;
+    text-align: left;
     overflow-wrap: anywhere;
     font-weight: bold; /* Negrita para destacar */
 }
@@ -380,3 +381,37 @@ label, input {
     50% { opacity: 1; }
     100% { opacity: 0.5; }
   }
+
+  #video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#open-video {
+  margin: 15px auto;
+}

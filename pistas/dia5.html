@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pista Día 1</title>
+    <title>Pista Día 5</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
-        <h1>🎄 Día 1 🎄</h1>
+        <h1>🎄 Día 5 🎄</h1>
     </header>
     <main>
         <div class="content-box">
-            <p>Tu pista: "El lugar donde nos conocimos por primera vez. Un momento que cambió todo.".</p>
-            <div class="flip-card" onclick="toggleFlip(this)">
-                <div class="flip-card-inner">
-                    <!-- Cara frontal: Bloqueo -->
-                    <div class="flip-card-front">
-                        <h3>🔒 Bloqueado</h3>
-                        <p>Haz clic para desbloquear</p>
-                    </div>
-              
-                    <!-- Cara trasera: Imagen -->
-                    <div class="flip-card-back">
-                        <img src="../img/clue2.jpg" alt="Imagen Oculta">
-                    </div>
+            <p>Tu pista: "Cosas tuyas que me hacen feliz".</p>
+            <!-- Botón para abrir el video -->
+            <button id="open-video">Ver Video del Día</button>
+
+            <!-- Modal del video -->
+            <div id="video-modal" style="display: none;">
+                <div id="modal-content">
+                    <span id="close-modal">&times;</span>
+                    <video id="advent-video-modal" controls>
+                        <source src="../vid/clue_05.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de videos.
+                    </video>
                 </div>
-            </div>                         
+            </div>
+                                
             <form id="answer-form">
                 <label for="answer">Tu respuesta:</label>
                 <input type="text" id="answer" name="answer" placeholder="Escribe tu respuesta aquí">
@@ -61,6 +61,25 @@
                 alert("Respuesta incorrecta. Inténtalo de nuevo.");
             }
         });
+
+        const openVideoBtn = document.getElementById('open-video');
+        const videoModal = document.getElementById('video-modal');
+        const closeModal = document.getElementById('close-modal');
+
+        openVideoBtn.addEventListener('click', () => {
+            videoModal.style.display = 'flex';
+        });
+
+        closeModal.addEventListener('click', () => {
+            videoModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === videoModal) {
+                videoModal.style.display = 'none';
+            }
+        });
+
     </script>
 </body>
 </html>

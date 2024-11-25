@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pista Día 1</title>
+    <title>Pista Día 3</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
-        <h1>🎄 Día 1 🎄</h1>
+        <h1>🎄 Día 3 🎄</h1>
     </header>
     <main>
         <div class="content-box">
-            <p>Tu pista: "El lugar donde nos conocimos por primera vez. Un momento que cambió todo.".</p>
-            <div class="flip-card" onclick="toggleFlip(this)">
-                <div class="flip-card-inner">
-                    <!-- Cara frontal: Bloqueo -->
-                    <div class="flip-card-front">
-                        <h3>🔒 Bloqueado</h3>
-                        <p>Haz clic para desbloquear</p>
-                    </div>
-              
-                    <!-- Cara trasera: Imagen -->
-                    <div class="flip-card-back">
-                        <img src="../img/clue2.jpg" alt="Imagen Oculta">
-                    </div>
-                </div>
-            </div>                         
+            <p>Mi pequeña,</p> 
+
+            <p>Quiero aprovechar este momento para expresarte lo profundamente que te admiro.
+                Cada vez que te veo entregada a lo que haces, ya sea en tus estudios, en las oposiciones, o en todo lo que haces por los demás, me siento increíblemente orgulloso de ti.
+                Tu capacidad de esfuerzo y dedicación no tiene comparación.
+                No solo eres increíblemente inteligente, sino que también tienes una fuerza admirable para equilibrar tantas cosas.</p>
+                
+            <p>Lo que más me impresiona es tu constancia y el amor con el que te entregas a todo lo que te importa, ya sea conmigo, con tu familia o con tus estudios.
+                Eres una persona única, con un corazón enorme y una mente brillante, y es un verdadero privilegio ser testigo de todo lo que logras.</p>
+                
+            <p>Te admiro profundamente, no solo por lo que eres capaz de hacer, sino por la persona tan maravillosa que eres. Gracias por inspirarme cada día.</p>
+                
+            <p>Con todo mi cariño,</p>   
+            
+            <p>Tu novio, Sergio</p>
             <form id="answer-form">
                 <label for="answer">Tu respuesta:</label>
                 <input type="text" id="answer" name="answer" placeholder="Escribe tu respuesta aquí">
@@ -47,7 +47,7 @@
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const correctAnswer = "rojo"; // Respuesta correcta
+            const correctAnswer = "Admiración"; // Respuesta correcta
             const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
 
             if (userAnswer === correctAnswer) {
