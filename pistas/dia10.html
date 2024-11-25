@@ -3,30 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pista Día 1</title>
+    <title>Pista Día 10</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
-        <h1>🎄 Día 1 🎄</h1>
+        <h1>🎄 Día 10 🎄</h1>
     </header>
     <main>
         <div class="content-box">
             <p>Tu pista: "El lugar donde nos conocimos por primera vez. Un momento que cambió todo.".</p>
-            <div class="flip-card" onclick="toggleFlip(this)">
-                <div class="flip-card-inner">
-                    <!-- Cara frontal: Bloqueo -->
-                    <div class="flip-card-front">
-                        <h3>🔒 Bloqueado</h3>
-                        <p>Haz clic para desbloquear</p>
-                    </div>
-              
-                    <!-- Cara trasera: Imagen -->
-                    <div class="flip-card-back">
-                        <img src="../img/clue2.jpg" alt="Imagen Oculta">
-                    </div>
-                </div>
-            </div>                         
+            <!-- Contenedor de la Canción -->
+            <div id="song-container">
+                <audio id="advent-song" controls>
+                    <source src="../aud/clue10.mp3" type="audio/mpeg">
+                    Tu navegador no soporta la reproducción de audio.
+                </audio>
+            </div>
+                                
             <form id="answer-form">
                 <label for="answer">Tu respuesta:</label>
                 <input type="text" id="answer" name="answer" placeholder="Escribe tu respuesta aquí">
@@ -61,6 +55,13 @@
                 alert("Respuesta incorrecta. Inténtalo de nuevo.");
             }
         });
+        const playSongBtn = document.getElementById('play-song');
+        const adventSong = document.getElementById('advent-song');
+
+        playSongBtn.addEventListener('click', () => {
+            adventSong.play(); // Reproduce la canción
+        });
+
     </script>
 </body>
 </html>

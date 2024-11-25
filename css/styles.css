@@ -27,6 +27,7 @@ header p {
     font-size: 1.2em;
     margin: 10px 0;
     color: #f39c12;
+    text-align: center;
 }
 
 p {
@@ -422,4 +423,36 @@ label, input {
 
 #open-video {
   margin: 15px auto;
+}
+
+
+
+#song-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 600px; /* Ancho máximo */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#advent-song {
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+}
+
+
+@media (max-width: 768px) {
+  #song-container {
+      width: 90%; /* Reduce el ancho */
+      padding: 10px;
+  }
+  
+  #advent-song {
+      width: 100%;
+  }
 }
