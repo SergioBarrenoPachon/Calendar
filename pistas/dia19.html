@@ -12,7 +12,7 @@
     </header>
     <main>
         <div class="content-box">
-            <p>Tu pista: "El lugar donde nos conocimos por primera vez. Un momento que cambió todo.".</p>
+            <p>Pista: "La música nos unió en un compás perfecto. No éramos bailarines, pero nuestros pasos improvisados hablaban más claro que cualquier coreografía. ¿Recuerdas cómo olvidé la vergüenza por perderme en ti?".</p>
             <div class="flip-card" onclick="toggleFlip(this)">
                 <div class="flip-card-inner">
                     <!-- Cara frontal: Bloqueo -->
@@ -23,7 +23,7 @@
               
                     <!-- Cara trasera: Imagen -->
                     <div class="flip-card-back">
-                        <img src="../img/clue2.jpg" alt="Imagen Oculta">
+                        <img src="../img/clue19.jpg" alt="Imagen Oculta">
                     </div>
                 </div>
             </div>                         
@@ -47,7 +47,7 @@
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const correctAnswer = "rojo"; // Respuesta correcta
+            const correctAnswer = "Prom"; // Respuesta correcta
             const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
 
             if (userAnswer === correctAnswer) {

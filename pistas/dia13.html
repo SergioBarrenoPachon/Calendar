@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pista Día 1</title>
+    <title>Pista Día 13</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
-        <h1>🎄 Día 1 🎄</h1>
+        <h1>🎄 Día 13 🎄</h1>
     </header>
     <main>
         <div class="content-box">
-            <p>Tu pista: "El lugar donde nos conocimos por primera vez. Un momento que cambió todo.".</p>
+            <p class="poesia">En sus valles el azar nos unió,
+                el viento suave tu nombre cantó.
+                Antes de amarnos, ya el mar lo sabía:
+                en sus olas vivía nuestra melodía.
+                
+                Volvimos juntos, con pasos tranquilos,
+                tus ojos guiaban mi norte y mi destino.
+                Galicia nos abrazó con su calma,
+                y su río reflejó lo que hay en mi alma.
+                
+                En cada rincón dejamos un beso,
+                promesas al mar de un amor eterno.
+                Su verde infinito susurró la verdad:
+                amarte es mi casa, mi felicidad.</p>
             <div class="flip-card" onclick="toggleFlip(this)">
                 <div class="flip-card-inner">
                     <!-- Cara frontal: Bloqueo -->
@@ -23,7 +36,7 @@
               
                     <!-- Cara trasera: Imagen -->
                     <div class="flip-card-back">
-                        <img src="../img/clue2.jpg" alt="Imagen Oculta">
+                        <img src="../img/clue13.jpg" alt="Imagen Oculta">
                     </div>
                 </div>
             </div>                         
@@ -47,7 +60,7 @@
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const correctAnswer = "rojo"; // Respuesta correcta
+            const correctAnswer = "Samil"; // Respuesta correcta
             const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
 
             if (userAnswer === correctAnswer) {
