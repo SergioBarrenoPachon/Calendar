@@ -456,3 +456,89 @@ label, input {
       width: 100%;
   }
 }
+
+/*CONTENEDOR DEL CARRUSEL*/
+
+/* Contenedor principal del carrusel */
+.carousel {
+  position: relative;
+  max-width: 800px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  height: 400px; /* Altura fija del carrusel */
+  background-color: #000; /* Fondo negro */
+}
+
+/* Contenedor interno que contiene las imágenes */
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%; /* Altura del carrusel */
+}
+
+/* Contenedor de cada imagen individual */
+.carousel-image {
+  flex-shrink: 0; /* Evita que el contenedor de la imagen se reduzca */
+  width: 100%; /* Ocupa el ancho del carrusel */
+  height: 100%; /* Ocupa toda la altura del carrusel */
+  display: flex; /* Centra el contenido dentro del contenedor */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Las imágenes dentro del contenedor */
+.carousel-image img {
+  max-width: 100%; /* Escala la imagen para no exceder el ancho del contenedor */
+  max-height: 100%; /* Escala la imagen para no exceder la altura del contenedor */
+  object-fit: contain; /* Mantiene las proporciones originales de la imagen */
+  display: block;
+}
+
+/* Botones del carrusel */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 24px;
+  z-index: 1;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Botón anterior */
+#prev-btn {
+  left: 10px;
+}
+
+/* Botón siguiente */
+#next-btn {
+  right: 10px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  .carousel {
+    max-width: 100%;
+    height: 300px; /* Reduce la altura en pantallas más pequeñas */
+  }
+
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+}
+
+
+/*END DEL CARRUSEL*/

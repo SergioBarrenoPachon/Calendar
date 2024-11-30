@@ -3,30 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pista Día 1</title>
+    <title>Pista Día 14</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
-        <h1>🎄 Día 1 🎄</h1>
+        <h1>🎄 Día 14 🎄</h1>
     </header>
     <main>
         <div class="content-box">
             <p>Pista: "Entre risas y locuras, nos disfrazamos de lo que quisimos ser y, al mismo tiempo, fuimos más nosotros que nunca. ¿Recuerdas cómo tus ojos brillaban de alegría bajo aquella máscara?"</p>
-            <div class="flip-card" onclick="toggleFlip(this)">
-                <div class="flip-card-inner">
-                    <!-- Cara frontal: Bloqueo -->
-                    <div class="flip-card-front">
-                        <h3>🔒 Bloqueado</h3>
-                        <p>Haz clic para desbloquear</p>
+            <div id="image-carousel" class="carousel">
+                <button id="prev-btn" class="carousel-btn">❮</button>
+                <div class="carousel-images">
+                    <div class="carousel-image">
+                        <img src="../img/clue14_1.jpg" alt="Imagen 1">
                     </div>
-              
-                    <!-- Cara trasera: Imagen -->
-                    <div class="flip-card-back">
-                        <img src="../img/clue14.jpg" alt="Imagen Oculta">
+                    <div class="carousel-image">
+                        <img src="../img/clue14_2.jpg" alt="Imagen 2">
                     </div>
+                    <div class="carousel-image">
+                        <img src="../img/clue14_3.jpg" alt="Imagen 3">
+                    </div>
+                    <div class="carousel-image">
+                        <img src="../img/clue14_4.jpg" alt="Imagen 4">
+                    </div>
+                    <div class="carousel-image">
+                        <img src="../img/clue14_5.jpg" alt="Imagen 5">
+                    </div>
+                    <div class="carousel-image">
+                        <img src="../img/clue14_6.jpg" alt="Imagen 6">
+                    </div>
+                    <div class="carousel-image">
+                        <img src="../img/clue14_7.jpg" alt="Imagen 7">
+                    </div>
+                    
                 </div>
-            </div>                         
+                <button id="next-btn" class="carousel-btn">❯</button>
+            </div>                       
             <form id="answer-form">
                 <label for="answer">Tu respuesta:</label>
                 <input type="text" id="answer" name="answer" placeholder="Escribe tu respuesta aquí">
@@ -60,7 +74,49 @@
             } else {
                 alert("Respuesta incorrecta. Inténtalo de nuevo.");
             }
+        })
+        
+
+        /*CONTENEDOR DEL CARRUSEL*/
+        const carouselImages = document.querySelector('.carousel-images');
+        const images = document.querySelectorAll('.carousel-image');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        let currentIndex = 0; // Índice de la imagen actual
+
+        function updateCarousel() {
+            // Calcula el desplazamiento basándote en el ancho del contenedor
+            const offset = -currentIndex * carouselImages.parentElement.clientWidth;
+            carouselImages.style.transform = `translateX(${offset}px)`;
+        }
+
+        // Evento para el botón "anterior"
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            updateCarousel();
         });
+
+        // Evento para el botón "siguiente"
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        });
+
+        // Ajustar el carrusel si cambia el tamaño de la ventana
+        window.addEventListener('resize', updateCarousel);
+
+        // Inicializar el carrusel
+        updateCarousel();
+
+
+        setInterval(() => {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        }, 5000); // Cambia cada 5 segundos
+
+        /*END DEL CARRUSEL*/
+        ;
     </script>
 </body>
 </html>
