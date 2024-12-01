@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pista Día 1</title>
+    <title>Pista Día 19</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
-        <h1>🎄 Día 1 🎄</h1>
+        <h1>🎄 Día 19 🎄</h1>
     </header>
     <main>
         <div class="content-box">
-            <p>Pista: "La música nos unió en un compás perfecto. No éramos bailarines, pero nuestros pasos improvisados hablaban más claro que cualquier coreografía. ¿Recuerdas cómo olvidé la vergüenza por perderme en ti?".</p>
+            <p>Pista: "Entre luces y magia, caminamos como en un cuento. ¿Recuerdas cómo el castillo nos pareció pequeño frente al amor que llevábamos dentro?"</p>
             <div class="flip-card" onclick="toggleFlip(this)">
                 <div class="flip-card-inner">
                     <!-- Cara frontal: Bloqueo -->
@@ -23,7 +23,7 @@
               
                     <!-- Cara trasera: Imagen -->
                     <div class="flip-card-back">
-                        <img src="../img/clue19.jpg" alt="Imagen Oculta">
+                        <img src="../img/clue21.jpg" alt="Imagen Oculta">
                     </div>
                 </div>
             </div>                         
@@ -47,7 +47,7 @@
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const correctAnswer = "Prom"; // Respuesta correcta
+            const correctAnswer = "Paris"; // Respuesta correcta
             const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
 
             if (userAnswer === correctAnswer) {

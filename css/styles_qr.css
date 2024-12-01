@@ -1,0 +1,119 @@
+/* Fondo blanco para todo el cuerpo */
+body {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #007BFF;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Contenedor principal de los QRs */
+.qr-container {
+    text-align: center;
+}
+
+/* Estilo para los QRs generados */
+#qr-dias {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.qr-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.qr-item h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+canvas {
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilos para el QR de Reset */
+#qr-reset {
+    margin-top: 40px;
+}
+
+#qr-reset p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Estilo para la impresión */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+    header {
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .qr-container {
+        text-align: left;
+        padding: 10px;
+    }
+
+    /* Estilo para el contenedor de los QRs en la impresión */
+    #qr-dias {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Aumenté el min-width para más espacio */
+        gap: 20px; /* Espacio entre los QR */
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Estilo para los elementos de los QRs en la impresión */
+    .qr-item {
+        page-break-inside: avoid;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px; /* Aumenté el padding para mayor espacio */
+        background-color: white;
+        box-shadow: none;
+    }
+
+    /* Aumentar el tamaño de los QR en la impresión */
+    canvas {
+        width: 150px; /* Ajusté el tamaño de los QR */
+        height: 150px; /* Ajusté el tamaño de los QR */
+    }
+
+    #qr-reset p {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+}

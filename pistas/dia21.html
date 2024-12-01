@@ -12,7 +12,7 @@
     </header>
     <main>
         <div class="content-box">
-            <p>Pista: "Entre luces y magia, caminamos como en un cuento. ¿Recuerdas cómo el castillo nos pareció pequeño frente al amor que llevábamos dentro?"</p>
+            <p>Pista: "La ciudad brillaba con luces, pero ninguna tan fuerte como tus ojos al ver los adornos. ¿Recuerdas cómo cada rincón de Madrid se volvió nuestro refugio en aquella Navidad?"</p>
             <div class="flip-card" onclick="toggleFlip(this)">
                 <div class="flip-card-inner">
                     <!-- Cara frontal: Bloqueo -->
@@ -23,7 +23,7 @@
               
                     <!-- Cara trasera: Imagen -->
                     <div class="flip-card-back">
-                        <img src="../img/clue21.jpg" alt="Imagen Oculta">
+                        <img src="../img/clue20.jpg" alt="Imagen Oculta">
                     </div>
                 </div>
             </div>                         
@@ -47,7 +47,7 @@
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const correctAnswer = "Paris"; // Respuesta correcta
+            const correctAnswer = "navidad"; // Respuesta correcta
             const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
 
             if (userAnswer === correctAnswer) {

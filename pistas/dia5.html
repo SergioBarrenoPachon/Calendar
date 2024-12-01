@@ -14,7 +14,7 @@
         <div class="content-box">
             <p>Tu pista: "Cosas tuyas que me hacen feliz".</p>
             <!-- Botón para abrir el video -->
-            <button id="open-video">Ver Video del Día</button>
+            <button id="open-video">Ver Video</button>
 
             <!-- Modal del video -->
             <div id="video-modal" style="display: none;">
@@ -47,7 +47,7 @@
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const correctAnswer = "Risa"; // Respuesta correcta
+            const correctAnswer = "risa"; // Respuesta correcta
             const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
 
             if (userAnswer === correctAnswer) {
