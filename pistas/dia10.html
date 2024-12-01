@@ -12,7 +12,7 @@
     </header>
     <main>
         <div class="content-box">
-            <p>Tu pista: "El lugar donde nos conocimos por primera vez. Un momento que cambió todo.".</p>
+            <p>Tu pista: "Algo nuestro, tu perfecta definición".</p>
             <!-- Contenedor de la Canción -->
             <div id="song-container">
                 <audio id="advent-song" controls>
@@ -41,7 +41,7 @@
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const correctAnswer = "rojo"; // Respuesta correcta
+            const correctAnswer = "perfect"; // Respuesta correcta
             const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
 
             if (userAnswer === correctAnswer) {
