@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de QR - Calendario de Adviento</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles_qr.css">
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
 </head>
 <body>
@@ -15,7 +15,12 @@
 
     <main>
         <div class="qr-container">
-            <!-- Contenedor dinámico para los QRs de cada día -->
+            <h2>QR de la Página Principal</h2>
+            <p>Escanea este código para ir directamente a la página principal del Calendario de Adviento:</p>
+            <div id="qr-principal">
+                <!-- QR de la página principal será generado aquí -->
+            </div>
+
             <h2>QRs de los Días</h2>
             <div id="qr-dias">
                 <!-- Se generarán 24 QRs automáticamente -->
@@ -31,6 +36,16 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // Generar QR para la página principal
+            const qrPrincipalContainer = document.getElementById("qr-principal");
+            const principalURL = "https://sergiobarrenopachon.github.io/Calendar/index.html";  // URL de la página principal
+            const principalCanvas = document.createElement("canvas");
+            qrPrincipalContainer.appendChild(principalCanvas);
+
+            QRCode.toCanvas(principalCanvas, principalURL, (error) => {
+                if (error) console.error("Error generando el QR de la página principal", error);
+            });
+
             // Generar QR para cada día del calendario
             const qrDiasContainer = document.getElementById("qr-dias");
         
@@ -66,7 +81,6 @@
                 if (error) console.error("Error generando el QR de reset", error);
             });
         });
-
     </script>
 </body>
 </html>
