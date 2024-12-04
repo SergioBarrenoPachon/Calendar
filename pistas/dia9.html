@@ -52,7 +52,7 @@
 
             if (userAnswer === correctAnswer) {
                 alert("¡Correcto! Día resuelto.");
-                const dia = 1; // Cambiar al número del día correspondiente
+                const dia = 9; // Cambiar al número del día correspondiente
                 const progreso = JSON.parse(localStorage.getItem("progreso")) || {};
                 progreso[dia] = { status: "resolved" };
                 localStorage.setItem("progreso", JSON.stringify(progreso));
