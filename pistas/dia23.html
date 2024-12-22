@@ -32,7 +32,7 @@
             </div>                         
             <form id="answer-form">
                 <label for="answer">Tu respuesta:</label>
-                <input type="text" id="answer" name="answer" placeholder="Escribe tu respuesta aquí">
+                <input type="text" id="answer" name="answer" placeholder="dd/mm/aaaa">
                 <button type="submit">Enviar</button>
             </form>
         </div>
@@ -50,7 +50,7 @@
         document.getElementById("answer-form").addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const correctAnswer = "rojo"; // Respuesta correcta
+            const correctAnswer = "22/07/2018"; // Respuesta correcta
             const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
 
             if (userAnswer === correctAnswer) {
